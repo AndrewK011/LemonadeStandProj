@@ -10,10 +10,13 @@ namespace LemonadeStand
     {
         public Weather weather;
         public List<Customer> customers;
+        Customer customer = new Customer();
 
         public Day()
         {
-
+            weather = new Weather();
+            customers = new List<Customer>();
+            
         }
     }
 }

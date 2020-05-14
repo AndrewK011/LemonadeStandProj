@@ -11,7 +11,12 @@ namespace LemonadeStand
     {
         public string condition;
         public int temperature;
-        List<string> weatherConditions;
+        List<string> weatherConditions = new List<string>(){ "Hazy", "Rainy", "Sunny and Clear", "Cloudy" };
         public string predictedForecast;
+
+        public Weather()
+        {
+
+        }
     }
 }

@@ -12,5 +12,10 @@ namespace LemonadeStand
         double pricePerSugarCube;
         double pricePerIceCube;
         double pricePerCup;
+
+        public Store()
+        {
+            Console.WriteLine();
+        }
     }
 }
