@@ -34,28 +34,28 @@ namespace LemonadeStand
         public void CupStore(Player player)
         {
             Console.WriteLine($"You have {player.inventory.cups.Count} cups.\nHow many do you want to buy for {pricePerCup} each?");
-            quantity = UserInterface.HowMany(player);
+            quantity = UserInterface.HowMany();
             quantity = player.wallet.PayForItem(quantity, pricePerCup);
             player.inventory.AddCupToInventory(quantity);
         }
         public void LemonStore(Player player)
         {
             Console.WriteLine($"You have {player.inventory.lemons.Count} lemons.\nHow many do you want to buy for {pricePerLemon} each?");
-            quantity = UserInterface.HowMany(player);
+            quantity = UserInterface.HowMany();
             quantity = player.wallet.PayForItem(quantity, pricePerLemon);
             player.inventory.AddLemonToInventory(quantity);
         }
         public void SugarStore(Player player)
         {
             Console.WriteLine($"You have {player.inventory.sugarCubes.Count} sugar cubes.\nHow many do you want to buy for {pricePerSugarCube} each?");
-            quantity = UserInterface.HowMany(player);
+            quantity = UserInterface.HowMany();
             quantity = player.wallet.PayForItem(quantity, pricePerSugarCube);
             player.inventory.AddSugarToInventory(quantity);
         }
         public void IceStore(Player player)
         {
             Console.WriteLine($"You have {player.inventory.iceCubes.Count} ice cubes.\nHow many do you want to buy for {pricePerIceCube} each?");
-            quantity = UserInterface.HowMany(player);
+            quantity = UserInterface.HowMany();
             quantity = player.wallet.PayForItem(quantity, pricePerIceCube);
             player.inventory.AddIceToInventory(quantity);
         }

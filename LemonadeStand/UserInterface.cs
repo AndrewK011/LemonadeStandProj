@@ -10,7 +10,7 @@ namespace LemonadeStand
     static class UserInterface
     {
         
-        public static int HowMany(Player player)
+        public static int HowMany()
         {
             int userInput;
             if(int.TryParse(Console.ReadLine(), out userInput))
@@ -21,7 +21,7 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("Invalid input.");
-                HowMany(player);
+                HowMany();
                 
             }
 
