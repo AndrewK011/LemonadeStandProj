@@ -14,14 +14,15 @@ namespace LemonadeStand
 
         public Customer()
         {
-
+            
         }
 
-        public void SetDemand(Weather weather)
+        public double GetDemand(Weather weather)
         {
             switch(weather.condition)
             {
                 case "rainy":
+                    demand += 10.0;
                     break;
                 case"overcast":
                     demand += 20.0;
@@ -35,6 +36,9 @@ namespace LemonadeStand
                 default:
                     break;
             }
+
+            demand += (weather.temperature - 40);
+            return demand;
         }
 
         public void SetChanceToBuy(double demand, double pricePerCup)

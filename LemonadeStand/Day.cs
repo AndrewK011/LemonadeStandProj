@@ -16,9 +16,26 @@ namespace LemonadeStand
         {
             weather = new Weather();
             customers = new List<Customer>();
-            customer.SetDemand(weather);
-            
+            customer.GetDemand(weather); 
         }
 
+        public void AddCustomers(double demand, Player player)
+        {
+            for (int i = 0; i < demand; i++)
+            {
+                
+                customers.Add(customer);
+            }
+        }
+
+        public void CreateDay(Player player)
+        {
+            double demand = customer.GetDemand(weather);
+            for (int i = 0; i < demand; i++)
+            {
+                customer.SetChanceToBuy(demand, player.recipe.pricePerCup);
+                customers.Add(customer);
+            }
+        }
     }
 }

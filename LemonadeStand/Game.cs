@@ -12,7 +12,7 @@ namespace LemonadeStand
         Store store;
         Player playerOne;
         List<Day> days;
-        int currentDay = 1;
+        int currentDay;
 
         public Game()
         {
@@ -20,22 +20,25 @@ namespace LemonadeStand
             store = new Store();
             playerOne = new Player();
             days = new List<Day>();
+            currentDay = 1;
         }
 
         public void StartGame()
         {
             Console.WriteLine("Welcome to your Lemonade Stand!");
+            HowManyDays();
             DayLoop();
         }
 
         public void DayLoop()
         {
+            day.CreateDay(playerOne);
             Console.WriteLine($"Day {currentDay}\n");
-
             store.GoToStore(playerOne);
             
             
         }
+
 
         public void HowManyDays()
         {
@@ -64,7 +67,7 @@ namespace LemonadeStand
         {
             for (int i = 1; i <= numberOfDays; i++)
             {
-
+                days.Add(day);
             }
         }
 
