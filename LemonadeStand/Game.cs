@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 namespace LemonadeStand
 {
     class Game
-    {
-        Player player;
+    {      
         Day day;
         Store store;
         Player playerOne;
         List<Day> days;
-        int currentDay;
+        int currentDay = 1;
 
         public Game()
         {
@@ -22,5 +21,52 @@ namespace LemonadeStand
             playerOne = new Player();
             days = new List<Day>();
         }
+
+        public void StartGame()
+        {
+            Console.WriteLine("Welcome to your Lemonade Stand!");
+            DayLoop();
+        }
+
+        public void DayLoop()
+        {
+            Console.WriteLine($"Day {currentDay}\n");
+
+            store.GoToStore(playerOne);
+            
+            
+        }
+
+        public void HowManyDays()
+        {
+            Console.WriteLine("How many days would you like to play? 7/14/30");
+            string dayChoice = Console.ReadLine();
+            switch (dayChoice)
+            {
+                case "7":
+                    GenerateDaysList(7);
+                    break;
+                case "14":
+                    GenerateDaysList(14);
+                    break;
+                case "30":
+                    GenerateDaysList(30);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input.");
+                    HowManyDays();
+                    break;
+            }
+        }
+
+        public void GenerateDaysList(int numberOfDays)
+        {
+            for (int i = 1; i <= numberOfDays; i++)
+            {
+
+            }
+        }
+
     }
 }

@@ -1,16 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class UserInterface
+    static class UserInterface
     {
-        static UserInterface()
+        
+        public static int BuyHowMany(Player player)
         {
+            int userInput;
+            if(int.TryParse(Console.ReadLine(), out userInput))
+            {
+                return userInput;
+            }
 
+            else
+            {
+                Console.WriteLine("Invalid input.");
+                BuyHowMany(player);
+                
+            }
+
+            return userInput;
         }
     }
 }

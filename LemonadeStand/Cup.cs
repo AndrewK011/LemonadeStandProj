@@ -8,5 +8,11 @@ namespace LemonadeStand
 {
     class Cup : Item
     {
+        public Cup()
+        {
+            name = "cup";
+        }
+
+        
     }
 }

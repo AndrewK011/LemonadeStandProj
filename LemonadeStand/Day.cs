@@ -16,7 +16,9 @@ namespace LemonadeStand
         {
             weather = new Weather();
             customers = new List<Customer>();
+            customer.SetDemand(weather);
             
         }
+
     }
 }

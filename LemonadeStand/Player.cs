@@ -13,5 +13,13 @@ namespace LemonadeStand
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
+
+        public Player()
+        {
+            inventory = new Inventory();
+            wallet = new Wallet();
+            recipe = new Recipe();
+            pitcher = new Pitcher();
+        }
     }
 }
