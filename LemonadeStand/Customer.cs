@@ -9,42 +9,19 @@ namespace LemonadeStand
     class Customer
     {
         public string name;
-        public double demand;
         public double chanceToBuy;
-        public Random rng = new Random();
+        
 
         public Customer()
         {
-            
+            chanceToBuy = 0;
         }
 
-        public double GetDemand(Weather weather)
+        
+
+        public void SetChanceToBuy(Random rng)
         {
-            switch(weather.condition)
-            {
-                case "rainy":
-                    demand += 10.0;
-                    break;
-                case"overcast":
-                    demand += 20.0;
-                    break;
-                case"sunny and clear":
-                    demand += 30.0;
-                    break;
-                case"cloudy":
-                    demand += 40.0;
-                    break;
-                default:
-                    break;
-            }
-
-            demand += (weather.temperature - 40);
-            return demand;
-        }
-
-        public void SetChanceToBuy(double demand, double pricePerCup)
-        {
-
+            chanceToBuy = rng.NextDouble();
         }
     }
 }

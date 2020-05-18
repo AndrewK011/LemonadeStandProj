@@ -33,7 +33,7 @@ namespace LemonadeStand
 
         public void DayLoop()
         {
-            day.CreateDay(playerOne);
+            day.CreateDay();
             Console.WriteLine($"Day {currentDay}\n");
             days[currentDay].Forecast();
             store.GoToStore(playerOne);

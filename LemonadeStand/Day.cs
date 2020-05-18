@@ -10,30 +10,48 @@ namespace LemonadeStand
     {
         public Weather weather;
         public List<Customer> customers;
-        Customer customer = new Customer();
+        Customer customer;
+        Random rng = new Random();
+        public double demand;
 
         public Day()
         {
             weather = new Weather();
-            customers = new List<Customer>();
-            customer.GetDemand(weather); 
-        }
+            customers = new List<Customer>();          
+        }      
 
-        public void AddCustomers(double demand, Player player)
+        public double GetDemand(Weather weather)
         {
-            for (int i = 0; i < demand; i++)
+            switch (weather.condition)
             {
-                
-                customers.Add(customer);
+                case "rainy":
+                    demand += 10.0;
+                    break;
+                case "overcast":
+                    demand += 20.0;
+                    break;
+                case "sunny and clear":
+                    demand += 30.0;
+                    break;
+                case "cloudy":
+                    demand += 40.0;
+                    break;
+                default:
+                    break;
             }
+
+            demand += (weather.temperature - 40);
+            return demand;
         }
 
-        public void CreateDay(Player player)
-        {
-            double demand = customer.GetDemand(weather);
+        public void CreateDay()
+        {          
+            double demand = GetDemand(weather);
             for (int i = 0; i < demand; i++)
             {
-                customer.SetChanceToBuy(demand, player.recipe.pricePerCup);
+
+                customer = new Customer();
+                customer.SetChanceToBuy(rng);
                 customers.Add(customer);
             }
         }
@@ -41,6 +59,11 @@ namespace LemonadeStand
         public void Forecast()
         {
             Console.WriteLine($"Tomorrow's weather forecast is {weather.predictedForecast}");
+        }
+
+        public void BeginDay()
+        {
+
         }
     }
 }
