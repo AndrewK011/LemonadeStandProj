@@ -13,13 +13,15 @@ namespace LemonadeStand
         Customer customer;
         Random rng = new Random();
         public double demand;
-        public bool isSoldOut;
+        public int saleCount;
+        public double totalProfit;
+        public double totalGross;
+
 
         public Day()
         {
             weather = new Weather();
-            customers = new List<Customer>();
-            isSoldOut = false;
+            customers = new List<Customer>();          
         }      
 
         public double GetDemand(Weather weather)
@@ -67,18 +69,33 @@ namespace LemonadeStand
         {
             for (int i = 0; i < customers.Count; i++)
             {
-                if (customers[i].chanceToBuy >= player.recipe.pricePerCup && !isSoldOut)
+                if(player.pitcher.cupsLeftInPitcher == 0)
                 {
-                    MakePurchase(player);
+                    player.FillPitcher();
+                }
+                if(player.inventoryShortage == true)
+                {
+                    Console.WriteLine("You have sold out of supplies.");
+                    break;
+                }
+                if (customers[i].chanceToBuy >= player.recipe.pricePerCup)
+                {                
+                    player.MakeSale();
+                    
+
                 }
             }
         }
 
+        public void EndDay(Player player)
+        {
+            Console.WriteLine("End of day results: \n");
+            Console.WriteLine($"There were a total of {(int)demand} customers.\n");
+            player.DisplayProfits();
+        }
+
         
 
-        public bool IsSoldOut()
-        {
-
-        }
+        
     }
 }

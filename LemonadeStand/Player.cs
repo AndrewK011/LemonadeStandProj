@@ -13,6 +13,9 @@ namespace LemonadeStand
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
+        public bool inventoryShortage;
+        public double totalGross;
+        public int saleCount;
 
         public Player()
         {
@@ -20,15 +23,20 @@ namespace LemonadeStand
             wallet = new Wallet();
             recipe = new Recipe();
             pitcher = new Pitcher();
+            inventoryShortage = false;
         }
 
         public void FillPitcher()
         {
-            AddLemonsToPitcher();
-            AddSugarToPitcher();
-            AddIceToPitcher();
-            UseCup();
-
+            inventoryShortage = CheckInventoryShortage();
+            if (inventoryShortage == false)
+            {
+                AddLemonsToPitcher();
+                AddSugarToPitcher();
+                AddIceToPitcher();
+                UseCup();
+                pitcher.cupsLeftInPitcher += recipe.amountOfIceCubes / 2;             
+            }
         }
         public void AddLemonsToPitcher()
         {
@@ -55,5 +63,34 @@ namespace LemonadeStand
         {
             inventory.cups.RemoveAt(0);
         }
+
+        public bool CheckInventoryShortage()
+        {
+            if (recipe.amountOfLemons > inventory.lemons.Count || recipe.amountOfSugarCubes > inventory.sugarCubes.Count 
+                || recipe.amountOfIceCubes > inventory.iceCubes.Count || inventory.cups.Count == 0)
+            {            
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public void MakeSale()
+        {
+            pitcher.cupsLeftInPitcher--;
+            wallet.Money += recipe.pricePerCup;
+            saleCount++;
+            totalGross += recipe.pricePerCup;
+        }
+
+        public void DisplayProfits()
+        {
+            double totalProfit = totalGross - wallet.totalPrice;
+            Console.WriteLine($"\nYou sold {saleCount} cups.\n You spent a total of {wallet.totalPrice}, made a total of {totalGross}, for a total profit of {totalProfit}");
+        }
+        
     }
 }

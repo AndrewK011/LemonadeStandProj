@@ -21,7 +21,7 @@ namespace LemonadeStand
             store = new Store();
             playerOne = new Player();
             days = new List<Day>();
-            currentDay = 1;
+           // currentDay;
         }
 
         public void StartGame()
@@ -29,19 +29,24 @@ namespace LemonadeStand
             Console.WriteLine("Welcome to your Lemonade Stand!");
             HowManyDays();
             DayLoop();
+
         }
 
         public void DayLoop()
         {
-            day.CreateDay();
-            Console.WriteLine($"Day {currentDay}\n");
-            days[currentDay].Forecast();
-            store.GoToStore(playerOne);
-            playerOne.recipe.SetRecipe();
-            day.BeginDay(playerOne);
-
-            currentDay++;
+            for (currentDay = 1; currentDay <= days.Count; currentDay++)
+            {
+                day.CreateDay();
+                Console.WriteLine($"Day {currentDay}\n");
+                days[currentDay].Forecast();
+                store.GoToStore(playerOne);
+                playerOne.recipe.SetRecipe();
+                day.BeginDay(playerOne);
+                day.EndDay(playerOne);
+            }
         }
+
+
 
 
         public void HowManyDays()

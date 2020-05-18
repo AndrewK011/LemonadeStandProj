@@ -21,7 +21,7 @@ namespace LemonadeStand
         {
             condition = weatherConditions[rng.Next(0, 4)];
             temperature = rng.Next(50, 102);
-            predictedForecast = condition + " at " + temperature.ToString() + " degress Fahrenheit.";
+            predictedForecast = condition + " at " + temperature.ToString() + " degrees Fahrenheit.";
         }
     }
 }

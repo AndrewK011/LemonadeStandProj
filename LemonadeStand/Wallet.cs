@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         double money;
         public double Money;
+        public double totalPrice;
 
         public Wallet()
         {
@@ -20,7 +21,6 @@ namespace LemonadeStand
         public int PayForItem(int quantity, double pricePerItem)
         {
             int itemsActuallyPurchased = quantity;
-            double totalPrice;
 
             totalPrice = quantity * pricePerItem;
             while (!EnoughMoney(totalPrice))
@@ -40,6 +40,7 @@ namespace LemonadeStand
             }
 
             money -= totalPrice;
+            
             DisplayMoney();
 
             return itemsActuallyPurchased;
