@@ -12,7 +12,7 @@ namespace LemonadeStand
         Store store;
         Player playerOne;
         List<Day> days;
-        int currentDay;
+        int currentDay;      
 
         public Game()
         {
@@ -34,6 +34,7 @@ namespace LemonadeStand
         {
             day.CreateDay(playerOne);
             Console.WriteLine($"Day {currentDay}\n");
+
             store.GoToStore(playerOne);
             
             

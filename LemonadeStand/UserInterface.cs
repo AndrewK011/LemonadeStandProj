@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace LemonadeStand
 {
     static class UserInterface
-    {
-        
+    {      
         public static int HowMany()
         {
             int userInput;

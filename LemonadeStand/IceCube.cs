@@ -12,5 +12,12 @@ namespace LemonadeStand
         {
             name = "ice cube";
         }
+
+        public void Melt(List<IceCube> cubes)
+        {                  
+            cubes.Clear();
+            Console.WriteLine("All your ice cubes have melted.");
+            
+        }
     }
 }

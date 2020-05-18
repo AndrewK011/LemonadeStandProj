@@ -37,5 +37,10 @@ namespace LemonadeStand
                 customers.Add(customer);
             }
         }
+
+        public void Forecast(Day day)
+        {
+            Console.WriteLine($"Tomorrow's weather forecast is {day.weather.predictedForecast}");
+        }
     }
 }

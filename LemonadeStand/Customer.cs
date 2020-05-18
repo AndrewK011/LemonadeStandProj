@@ -11,6 +11,7 @@ namespace LemonadeStand
         public string name;
         public double demand;
         public double chanceToBuy;
+        public Random rng = new Random();
 
         public Customer()
         {
@@ -28,10 +29,10 @@ namespace LemonadeStand
                     demand += 20.0;
                     break;
                 case"sunny and clear":
-                    demand += 50.0;
+                    demand += 30.0;
                     break;
                 case"cloudy":
-                    demand += 30.0;
+                    demand += 40.0;
                     break;
                 default:
                     break;

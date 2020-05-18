@@ -8,17 +8,22 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        public List<Lemon> lemons;// = new List<Lemon>();
-        public List<IceCube> iceCubes;// = new List<IceCube>();
+        public List<Lemon> lemons;
+        public List<IceCube> iceCubes;
         public List<Cup> cups;
         public List<SugarCube> sugarCubes;
-        public Cup cup = new Cup();
-        public SugarCube sugar = new SugarCube();
-        public Lemon lemon = new Lemon();
-        public IceCube ice = new IceCube();
+        public Cup cup;
+        public SugarCube sugar;
+        public Lemon lemon;
+        public IceCube ice;
+        public Random rng = new Random();
 
         public Inventory()
         {
+            cup = new Cup();
+            sugar = new SugarCube();
+            lemon = new Lemon();
+            ice = new IceCube();
             cups = new List<Cup>();
             lemons = new List<Lemon>();
             sugarCubes = new List<SugarCube>();
@@ -57,7 +62,7 @@ namespace LemonadeStand
             }
         }
 
-
+        
 
 
 
