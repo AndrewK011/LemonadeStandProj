@@ -29,7 +29,16 @@ namespace LemonadeStand
                 itemsActuallyPurchased--;
             }
 
-            Console.WriteLine($"You bought {itemsActuallyPurchased} for a total of {totalPrice}.");
+            if(totalPrice < 1)
+            {
+                Console.WriteLine($"You bought {itemsActuallyPurchased} for a total of {totalPrice} cents.");
+            }
+
+            else
+            {
+                Console.WriteLine($"You bought {itemsActuallyPurchased} for a total of {totalPrice} dollars.");
+            }
+
             money -= totalPrice;
             DisplayMoney();
 

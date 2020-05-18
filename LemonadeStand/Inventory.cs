@@ -10,8 +10,8 @@ namespace LemonadeStand
     {
         public List<Lemon> lemons;// = new List<Lemon>();
         public List<IceCube> iceCubes;// = new List<IceCube>();
-        public List<Cup> cups;// = new List<Cup>();
-        public List<SugarCube> sugarCubes;// = new List<SugarCube>();
+        public List<Cup> cups;
+        public List<SugarCube> sugarCubes;
         public Cup cup = new Cup();
         public SugarCube sugar = new SugarCube();
         public Lemon lemon = new Lemon();
@@ -19,7 +19,10 @@ namespace LemonadeStand
 
         public Inventory()
         {
-
+            cups = new List<Cup>();
+            lemons = new List<Lemon>();
+            sugarCubes = new List<SugarCube>();
+            iceCubes = new List<IceCube>();
         }
 
         public void AddCupToInventory(int quantity)

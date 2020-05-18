@@ -12,14 +12,14 @@ namespace LemonadeStand
     {
         public string condition;
         public int temperature;
-        List<string> weatherConditions = new List<string>(){ "Rainy", "Sunny and Clear", "Cloudy", "Overcast" };
+        List<string> weatherConditions = new List<string>(){ "rainy", "sunny and clear", "cloudy", "overcast" };
         public string predictedForecast;
         Random rng = new Random();
         
 
         public Weather()
         {
-            condition = weatherConditions[rng.Next(0, 5)];
+            condition = weatherConditions[rng.Next(0, 4)];
             temperature = rng.Next(50, 102);
         }
     }
