@@ -38,6 +38,7 @@ namespace LemonadeStand
             days[currentDay].Forecast();
             store.GoToStore(playerOne);
             playerOne.recipe.SetRecipe();
+            day.BeginDay(playerOne);
 
             currentDay++;
         }

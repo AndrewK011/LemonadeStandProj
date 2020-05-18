@@ -61,7 +61,27 @@ namespace LemonadeStand
             Console.WriteLine($"Tomorrow's weather forecast is {weather.predictedForecast}");
         }
 
-        public void BeginDay()
+        public void BeginDay(Player player)
+        {
+            for (int i = 0; i < customers.Count; i++)
+            {
+                if (customers[i].chanceToBuy >= player.recipe.pricePerCup)
+                {
+                    MakePurchase(player);
+                }
+            }
+        }
+
+        public void MakePurchase(Player player)
+        {
+            for(int i = 0; i < player.recipe.amountOfIceCubes; i++)
+            {
+                player.inventory.iceCubes.RemoveAt(i);
+            }
+            
+        }
+
+        public bool IsSoldOut()
         {
 
         }
