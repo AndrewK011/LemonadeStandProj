@@ -38,9 +38,9 @@ namespace LemonadeStand
             }
         }
 
-        public void Forecast(Day day)
+        public void Forecast()
         {
-            Console.WriteLine($"Tomorrow's weather forecast is {day.weather.predictedForecast}");
+            Console.WriteLine($"Tomorrow's weather forecast is {weather.predictedForecast}");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace LemonadeStand
         {
             day.CreateDay(playerOne);
             Console.WriteLine($"Day {currentDay}\n");
-
+            days[currentDay].Forecast();
             store.GoToStore(playerOne);
             
             
