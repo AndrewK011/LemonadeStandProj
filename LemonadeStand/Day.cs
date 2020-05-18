@@ -25,22 +25,22 @@ namespace LemonadeStand
             switch (weather.condition)
             {
                 case "rainy":
-                    demand += 10.0;
+                    demand += 5.0;
                     break;
                 case "overcast":
-                    demand += 20.0;
-                    break;
-                case "sunny and clear":
-                    demand += 30.0;
+                    demand += 10.0;
                     break;
                 case "cloudy":
-                    demand += 40.0;
+                    demand += 15.0;
                     break;
+                case "sunny and clear":
+                    demand += 20.0;
+                    break;          
                 default:
                     break;
             }
 
-            demand += (weather.temperature - 40);
+            demand += (weather.temperature - 45);
             return demand;
         }
 
