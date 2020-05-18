@@ -13,11 +13,13 @@ namespace LemonadeStand
         Customer customer;
         Random rng = new Random();
         public double demand;
+        public bool isSoldOut;
 
         public Day()
         {
             weather = new Weather();
-            customers = new List<Customer>();          
+            customers = new List<Customer>();
+            isSoldOut = false;
         }      
 
         public double GetDemand(Weather weather)
@@ -65,21 +67,14 @@ namespace LemonadeStand
         {
             for (int i = 0; i < customers.Count; i++)
             {
-                if (customers[i].chanceToBuy >= player.recipe.pricePerCup)
+                if (customers[i].chanceToBuy >= player.recipe.pricePerCup && !isSoldOut)
                 {
                     MakePurchase(player);
                 }
             }
         }
 
-        public void MakePurchase(Player player)
-        {
-            for(int i = 0; i < player.recipe.amountOfIceCubes; i++)
-            {
-                player.inventory.iceCubes.RemoveAt(i);
-            }
-            
-        }
+        
 
         public bool IsSoldOut()
         {

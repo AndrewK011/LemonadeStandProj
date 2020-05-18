@@ -50,32 +50,7 @@ namespace LemonadeStand
             pricePerCup = UserInterface.HowMuch();
         }
 
-        public void SellLemons(Player player)
-        {
-            for (int i = 0; i < amountOfLemons; i++)
-            {
-                player.inventory.lemons.RemoveAt(0);
-            }
-        }
-        public void SellSugar(Player player)
-        {
-            for (int i = 0; i < amountOfSugarCubes; i++)
-            {
-                player.inventory.sugarCubes.RemoveAt(0);
-            }
-        }
-        public void SellIce(Player player)
-        {
-            
-            for (int i = 0; i < amountOfIceCubes; i++)
-            {
-                player.inventory.iceCubes.RemoveAt(0);
-            }
-        }
-        public void SellCups(Player player)
-        {          
-                player.inventory.cups.RemoveAt(0);          
-        }
+        
 
 
     } 
