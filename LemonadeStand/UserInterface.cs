@@ -26,5 +26,22 @@ namespace LemonadeStand
 
             return userInput;
         }
+        public static double HowMuch()
+        {
+            double userInput;
+            if(double.TryParse(Console.ReadLine(), out userInput))
+            {
+                return userInput;
+            }
+
+            else
+            {
+                Console.WriteLine("Invalid input.");
+                HowMany();
+                
+            }
+
+            return userInput;
+        }
     }
 }

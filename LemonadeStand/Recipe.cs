@@ -46,8 +46,8 @@ namespace LemonadeStand
 
         public void SetPrice()
         {
-            Console.WriteLine("How many lemons do you want per pitcher?");
-            amountOfLemons = UserInterface.HowMany();
+            Console.WriteLine("How much do you want to charge per cup?");
+            pricePerCup = UserInterface.HowMuch();
         }
     } 
 }
