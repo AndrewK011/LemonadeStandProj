@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,8 +37,9 @@ namespace LemonadeStand
             Console.WriteLine($"Day {currentDay}\n");
             days[currentDay].Forecast();
             store.GoToStore(playerOne);
-            
-            
+            playerOne.recipe.SetRecipe();
+
+            currentDay++;
         }
 
 
@@ -70,6 +72,11 @@ namespace LemonadeStand
             {
                 days.Add(day);
             }
+        }
+
+        public void Upkeep()
+        {
+
         }
 
     }
