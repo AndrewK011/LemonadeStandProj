@@ -13,9 +13,6 @@ namespace LemonadeStand
         Customer customer;
         Random rng = new Random();
         public double demand;
-        public int saleCount;
-        public double totalProfit;
-        public double totalGross;
 
 
         public Day()
@@ -62,36 +59,39 @@ namespace LemonadeStand
 
         public void Forecast()
         {
-            Console.WriteLine($"Tomorrow's weather forecast is {weather.predictedForecast}");
+            Console.WriteLine($"Tomorrow's weather forecast is {weather.predictedForecast}\n");
         }
 
         public void BeginDay(Player player)
         {
             for (int i = 0; i < customers.Count; i++)
             {
-                if(player.pitcher.cupsLeftInPitcher == 0)
-                {
-                    player.FillPitcher();
-                }
-                if(player.inventoryShortage == true)
-                {
-                    Console.WriteLine("You have sold out of supplies.");
-                    break;
-                }
+                //if(player.pitcher.cupsLeftInPitcher == 0)
+                //{
+                //    player.FillPitcher();
+                //}
+
                 if (customers[i].chanceToBuy >= player.recipe.pricePerCup)
                 {                
                     player.MakeSale();
                     
 
                 }
+                if(player.inventoryShortage == true)
+                {
+                    Console.WriteLine("You have sold out of supplies.\n");
+                    break;
+                }
             }
+            Console.WriteLine($"There were a total of {(int)demand} customers.");
         }
 
         public void EndDay(Player player)
         {
             Console.WriteLine("End of day results: \n");
-            Console.WriteLine($"There were a total of {(int)demand} customers.\n");
             player.DisplayProfits();
+            player.Upkeep();
+            
         }
 
         

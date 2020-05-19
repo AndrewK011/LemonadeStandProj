@@ -16,6 +16,7 @@ namespace LemonadeStand
         public bool inventoryShortage;
         public double totalGross;
         public int saleCount;
+        Random rng = new Random();
 
         public Player()
         {
@@ -26,6 +27,7 @@ namespace LemonadeStand
             inventoryShortage = false;
         }
 
+        //Need to fix
         public void FillPitcher()
         {
             inventoryShortage = CheckInventoryShortage();
@@ -33,11 +35,18 @@ namespace LemonadeStand
             {
                 AddLemonsToPitcher();
                 AddSugarToPitcher();
-                AddIceToPitcher();
-                UseCup();
-                pitcher.cupsLeftInPitcher += recipe.amountOfIceCubes / 2;             
+                pitcher.cupsLeftInPitcher += 15;
             }
         }
+
+        public void ServeCup()
+        {
+                AddIceToCup();
+                UseCup();
+                pitcher.cupsLeftInPitcher --;             
+
+        }
+
         public void AddLemonsToPitcher()
         {
             for (int i = 0; i < recipe.amountOfLemons; i++)
@@ -52,7 +61,7 @@ namespace LemonadeStand
                 inventory.sugarCubes.RemoveAt(0);
             }
         }
-        public void AddIceToPitcher()
+        public void AddIceToCup()
         {
             for (int i = 0; i < recipe.amountOfIceCubes; i++)
             {
@@ -80,7 +89,7 @@ namespace LemonadeStand
 
         public void MakeSale()
         {
-            pitcher.cupsLeftInPitcher--;
+            
             wallet.Money += recipe.pricePerCup;
             saleCount++;
             totalGross += recipe.pricePerCup;
@@ -88,9 +97,17 @@ namespace LemonadeStand
 
         public void DisplayProfits()
         {
-            double totalProfit = totalGross - wallet.totalPrice;
-            Console.WriteLine($"\nYou sold {saleCount} cups.\n You spent a total of {wallet.totalPrice}, made a total of {totalGross}, for a total profit of {totalProfit}");
+            double totalProfit = totalGross - wallet.totalPriceForGame;
+            Console.WriteLine($"\nYou sold {saleCount} cups.\nYou spent a total of {wallet.totalPriceForGame}, made a total of {totalGross}, for a total profit of {totalProfit}");
         }
-        
+
+        public void Upkeep()
+        {
+            inventory.ice.Melt(inventory.iceCubes);
+            inventory.lemon.Spoilage(inventory.lemons, rng);
+            saleCount = 0;
+
+        }
+
     }
 }

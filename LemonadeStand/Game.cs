@@ -29,6 +29,7 @@ namespace LemonadeStand
             Console.WriteLine("Welcome to your Lemonade Stand!");
             HowManyDays();
             DayLoop();
+            day.EndDay(playerOne);
 
         }
 
@@ -42,7 +43,7 @@ namespace LemonadeStand
                 store.GoToStore(playerOne);
                 playerOne.recipe.SetRecipe();
                 day.BeginDay(playerOne);
-                day.EndDay(playerOne);
+
             }
         }
 
@@ -80,10 +81,7 @@ namespace LemonadeStand
             }
         }
 
-        public void Upkeep()
-        {
 
-        }
 
     }
 }

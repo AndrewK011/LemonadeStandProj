@@ -14,9 +14,13 @@ namespace LemonadeStand
             name = "lemon";
         }
 
-        public void Spoilage(List<Lemon> lemons)
+        public void Spoilage(List<Lemon> lemons, Random rng)
         {
-            
+            foreach(Lemon lemon in lemons)
+            if(rng.Next(0,21) == 0)
+            {
+                lemons.RemoveAt(0);
+            }
         }
     }
 }

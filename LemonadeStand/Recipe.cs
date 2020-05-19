@@ -40,7 +40,7 @@ namespace LemonadeStand
 
         public void SetIce()
         {
-            Console.WriteLine("How many ice cubes do you want per pitcher?");
+            Console.WriteLine("How many ice cubes do you want per cup?");
             amountOfIceCubes = UserInterface.HowMany();
         }
 

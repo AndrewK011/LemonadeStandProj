@@ -9,13 +9,31 @@ namespace LemonadeStand
     class Wallet
     {
         double money;
-        public double Money;
+        public double Money
+        {
+            set
+            {
+                if (value <= 0)
+                {
+                    money = 0;
+                }
+                else
+                {
+                    money = value;
+                }
+            }
+
+            get
+            {
+                return money;
+            }
+        }
         public double totalPrice;
+        public double totalPriceForGame;
 
         public Wallet()
         {
-            money = 20.00;
-            Money = money;
+            money = 20.00;           
         }
 
         public int PayForItem(int quantity, double pricePerItem)
@@ -40,7 +58,7 @@ namespace LemonadeStand
             }
 
             money -= totalPrice;
-            
+            totalPriceForGame += totalPrice;
             DisplayMoney();
 
             return itemsActuallyPurchased;
